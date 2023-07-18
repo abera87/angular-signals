@@ -1,0 +1,16 @@
+<p>product-list</p>
+
+<table>
+    <thead>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Price</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products()">
+            <td><a [routerLink]="[product.Id]">-{{product.Id}}-</a></td>
+            <td>{{product.Name}}</td>
+            <td>{{product.Price|currency:'INR'}}</td>
+        </tr>
+    </tbody>
+</table>
