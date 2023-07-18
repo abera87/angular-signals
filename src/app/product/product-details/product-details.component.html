@@ -1,0 +1,10 @@
+<p>product-details</p>
+<div *ngIf="productValue()">
+    <h5 hidden>Id: {{productValue().Id}}</h5>
+    <h3>Name: {{productValue().Name}}</h3>
+    <h4>Price: {{productValue().Price | currency:'INR'}}</h4>
+</div>
+
+
+<input type="text" class="text" #inputText> 
+<button (click)="updateProduct(+inputText.value)">Update</button>
