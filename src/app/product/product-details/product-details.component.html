@@ -6,5 +6,8 @@
 </div>
 
 
-<input type="text" class="text" #inputText> 
+<input type="number" class="text" #inputText> 
+<br/>
 <button (click)="updateProduct(+inputText.value)">Update</button>
+<br/>
+<a [routerLink]="['/products']">back</a>
