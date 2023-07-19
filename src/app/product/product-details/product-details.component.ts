@@ -1,4 +1,4 @@
-import { Component, Input, computed, numberAttribute } from '@angular/core';
+import { Component, Input, computed, inject, numberAttribute } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,11 +9,9 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent {
   @Input({ transform: numberAttribute }) id: number = 0;
-
+  
+  private productSrv = inject(ProductService);
   productValue = computed(() => this.productSrv.products().find(x => x.Id == this.id) ?? { Id: 0, Name: '', Price: 0 });
-
-
-  constructor(private productSrv: ProductService) { }
 
   updateProduct(pp: number) {
     if (this.productValue()) {

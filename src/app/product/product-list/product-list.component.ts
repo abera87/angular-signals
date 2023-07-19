@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -8,8 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
-constructor(private productSrv:ProductService){}
+  private productSrv = inject(ProductService);
 
-products=this.productSrv.products.asReadonly();
-
+  products = this.productSrv.products.asReadonly();
 }
