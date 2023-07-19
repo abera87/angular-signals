@@ -10,10 +10,10 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent {
   @Input({ transform: numberAttribute }) id: number = 0;
 
-  productValue = computed(()=>this.productSrv.products()[this.id - 1]);
+  productValue = computed(() => this.productSrv.products().find(x => x.Id == this.id) ?? { Id: 0, Name: '', Price: 0 });
 
 
-  constructor(private productSrv: ProductService) { }  
+  constructor(private productSrv: ProductService) { }
 
   updateProduct(pp: number) {
     if (this.productValue()) {
