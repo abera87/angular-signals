@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent {
   @Input({ transform: numberAttribute }) id: number = 0;
+  
   private productSrv = inject(ProductService);
   productValue = computed(() => this.productSrv.products().find(x => x.Id == this.id) ?? { Id: 0, Name: '', Price: 0 });
 
